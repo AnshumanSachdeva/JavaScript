@@ -1,0 +1,28 @@
+<!--Creating a new element using js-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM | Chai aur Code</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    
+</body>
+<script>
+    const div = document.createElement('div');
+    console.log(div);
+    div.className = "main"
+    div.id = Math.round(Math.random() * 10 + 1)
+
+    div.setAttribute('title','hello')
+    div.style.backgroundColor = 'green';
+    div.style.padding = '12 px';
+    // div.innerText = "Chai aur Code";// not recommended bcz it overwrites the original content
+    const addtext = document.createTextNode("Chai aur Code")
+    div.appendChild(addtext);
+    // but yeh abhi tk dikh nhi raha yr iske liye body mein div append krna pdega
+    document.body.appendChild(div);
+</script>
+</html>
