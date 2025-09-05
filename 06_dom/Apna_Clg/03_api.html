@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>api</title>
+</head>
+<body>
+    <p id="cat"></p>
+
+<script>
+    const cat = document.querySelector("#cat");
+    const getCatImage = async () => {
+        const url = "https://api.thecatapi.com/v1/images/search";
+        console.log('getting data');
+        
+        let response = await fetch(url);       // this request is called GET request
+        console.log(response);// abhi k time pr jo b data aa rha ha vo bilkul b smj nhi aa rha, humko toh browser jaisa format chaiye tha , uske liye kush imp terms padh lete hai pahle notes.md mein dekh lo line no. 47 se start hai
+        let data = await response.json();
+        cat.innerText = data[0];
+        console.log(data[0]);
+    }
+    
+</script>
+</body>
+</html>
