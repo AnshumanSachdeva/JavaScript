@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closure</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange">orange</button>
+    <button id="green">green</button>
+</body>
+<script>
+     function init() {
+        let name = "Mozilla"; 
+        function displayName() {
+            console.log(name); 
+        }
+        displayName();
+    }
+    init();
+
+    // function outer(){
+    //     let username = "hitesh"
+    //     // console.log("OUTER", secret);
+    //     function inner(){
+    //         let secret = "my123"
+    //         console.log("inner", username);
+    //     }
+    //     function innerTwo(){
+    //         console.log("innerTwo", username);
+    //         // console.log(secret);
+    //     }
+    //     inner()
+    //     innerTwo()
+
+    // }
+    // outer()
+    // console.log("TOO OUTER", username);
+// yr lexical scoping isi ko kehte hai ek fn ek andar , dusra fn hoga and , parent fn ki sari properties child fn mein aayegi but child ki koi b proerties parent mein nhi aayegi. Also agr more than 1  child hai toh ek child apni properties dusre child k sath share nhi krega
+
+// closure ki baat krte hai
+
+    function makeFunc() {
+        const name = "Mozilla";
+        function displayName() {
+            console.log(name);
+        }
+        return displayName;     //is baar humne child fn call krne ki jgh uska reference pass kr diya, toh jab humne parent fn ko call kiya and usmein child ka reference pass kr diya toh sirf child ka reference nhi jayega, agr parent fn ka scope available hai toh uska reference bhi jayega bcz of lexical scoping. 
+    }
+
+    const myFunc = makeFunc();
+    myFunc();
+
+// pura ka pura fn return krne ko hi closure kehte hai and jab fn return hota hai toh sirf vo fn return nhi hoga , uska pura lexical scope return hoga
+</script>
+<script>
+    //practical usage
+
+        // document.getElementById("orange").onclick = function () {
+        //     document.body.style.backgroundColor = `orange`
+        // }
+        // document.getElementById("green").onclick = function () {
+        //     document.body.style.backgroundColor = `green`
+        // }
+// but agar 400 500 button pr same kaam krna ho, toh bar bar copy paste thodi na krte rahenge itne velle thodi ha😂
+
+        function clickHandler(color) {
+            return function (){
+                document.body.style.backgroundColor = `${color}`
+            }
+        }
+        document.getElementById("orange").onclick = clickHandler("Orange")
+        document.getElementById("green").onclick = clickHandler("green")
+
+</script>
+</html>
