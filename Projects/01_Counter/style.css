@@ -1,0 +1,62 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.work {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 20px 20px 30px ;
+    gap: 20px;
+    
+}
+.output {
+    font-size: 50px;
+}
+
+.plus button {
+    background-color: greenyellow;
+    font-size: 16px;
+}
+
+.minus button {
+    background-color: red;
+    font-size: 16px;
+}
+
+.reset button{
+    background-color: black;
+    color: #fff;
+    font-size: 16px;
+   
+}
+
+.reset {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+}
+
+button {
+    padding: 12px 24px;
+    display: flex;
+    border-radius: 1.5rem;
+}
+
+button:hover {
+    cursor: pointer;
+    opacity: 50%;
+    border: 3px solid brown;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}

@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: 0.5s ease;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+}
+
+#start, #stop{
+    display: flex;
+    font-size: 20px;
+    margin: 10px 20px;
+    padding: 10px 20px;
+    border-radius: 1.5rem;
+}
+
+#start:hover, #stop:hover{
+    cursor: pointer;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+}
+
+#stop:hover{
+    background-color: red;
+    color: whitesmoke;
+}
+
+#start:hover{
+    background-color: greenyellow;
+}
