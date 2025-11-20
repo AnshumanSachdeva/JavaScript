@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur javascript</h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+</body>
+<script>
+//     setInterval(function () {    // similar to setTimeOut() bs yeh work krta hi rahega,rukega nhi
+//         console.log("Anshuman")
+//     }, 1000)
+
+    // const sayName = function () {
+    //     console.log("Anshuman");
+        
+    // }
+    // setInterval(sayName,1000,)
+    // also ismein parameters b pass kr skte hai
+
+    // const sayName = function (str) {
+    //     console.log(str);
+        
+    // }
+    // const intervalId = setInterval(sayName,1000,"hi")
+    // // ab isko rokne k liye clearInterval hai
+    // clearInterval(intervalId)
+
+    // ab mai chahta hu ki jab start button pr click kru toh printing st ho and stop pr click krte hi ruk jaye
+
+    let intervalId;
+     const sayName = function () {
+        console.log("Anshuman");
+    }
+
+    document.querySelector('#start').addEventListener('click', function () {
+        intervalId = setInterval(sayName, 1000);
+    });
+
+    document.querySelector('#stop').addEventListener('click', function () {
+        clearInterval(intervalId);
+    });
+ </script>
+</html>

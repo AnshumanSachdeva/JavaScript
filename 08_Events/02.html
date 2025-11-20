@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+//    setTimeout(function() {  // kush samay do and utna time hone k bad kaam krega but sirf ek bar
+//     console.log("Anshuman")
+//    }, 2000)
+
+    const sayName = function (){
+        console.log("Anshuman")
+    }
+    setTimeout(sayName, 2000)
+
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "Best JS series"
+    }
+    const changeMe = setTimeout(changeText,2000)
+    // ab agar mujhe chaiye ki mai agar 2 sec k pahle stop button click kr du toh fir text change na ho. uske liye clearTimeout hai.
+
+    document.querySelector('#stop').addEventListener('click', function (){
+        clearTimeout(changeMe)
+        console.log('Stopped');
+        
+    })
+</script>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+
+        // type, timestamp, defaultPrevented, target, to element, source element, currentTarget, client position and screen positin related 
+
+    // alt key , ctrl key , shift key , keyCode
+
+
+    // document.getElementById('owl').onclick = function () {
+    //     alert("Owl clicked")
+    // }   // yeh acha approach nhi hai , problem koi nhi hai bs ismein features kam hai , isliye eventlistener use krenge
+
+    // document.getElementById('owl').addEventListener('click' , function (){
+    //     alert("Owl clicked")
+    // }, false)   // bina false likhe b chal jayega
+
+    // ek attachEvent() - pahle k time pr use hota tha internet explorer pr chalane k liye
+    // jQuery - onEvent hota tha pahle . se access krte the 
+
+    //     document.getElementById('owl').addEventListener('click' , function (e){
+    //     console.log(e);
+        
+    // }, false) // islo true b kr denge toh b chal jayega and diff pta b nhi chalega , this is called event propogation. iske 2 context hote hai , event bubbling and event capturing.False is caleld event bubbling 
+
+        // type, timestamp, defaultPrevented, target, to element, source element, currentTarget, client position and screen positin related 
+
+    //     document.getElementById('images').addEventListener('click' , function (e){
+    //         console.log("Clicked inside the ul")
+    // }, false)
+    //     document.getElementById('owl').addEventListener('click' , function (e){
+    //         console.log("owl Clicked")
+    // }, false) 
+        // ismein jab owl pr click krenge toh pahle owl clicked print hoga and badmein clicked inside the ul
+
+
+    //     document.getElementById('images').addEventListener('click' , function (e){
+    //         console.log("Clicked inside the ul")
+    // }, true)
+    //     document.getElementById('owl').addEventListener('click' , function (e){
+    //         console.log("owl Clicked")
+    // }, true)
+    //     // ismein jab owl pr click krenge toh pahle clicked inside the ul print hoga and badmein owl clicked
+
+    // // acha agr hum nhi chahte ki event ki bubbling ho, hum chah rhe hai ki dono inner and outer elemnt alag alag rahe toh uske liye
+
+    // document.getElementById('images').addEventListener('click' , function (e){
+    //         console.log("Clicked inside the ul")
+    // }, false)
+    //     document.getElementById('owl').addEventListener('click' , function (e){
+    //         console.log("owl Clicked")
+    //         e.stopPropagation(); // ise use kiya toh sirf owl clicked hi print hoga and clicked on the ul print hi nhi hoga. Acha aise ek printDefault b hota hai
+    // }, false)
+
+    // document.getElementById('google').addEventListener('click', function (e){
+    //     e.stopPropagation()
+    //     console.log("google clicked")
+    //     e.preventDefault()
+    // }, false)
+
+    // ab mai chahta hu ki mai image pr click kru and image gayab ho jaye
+
+    // document.querySelector('#images').addEventListener('click', function(e){
+    //     console.log(e.target.parentNode)
+    //     let removeIt = e.target.parentNode
+    //     removeIt.remove()   // but agr list item pr click kiya toh , list item ka parent hai ul, humare ps parentNode mein kya aaya li ka parent, ul and humne kiya ki ul ko remove krdo toh puri hi list item remove ho gayi but humko aise toh nhi krna hai toh hum ek simple if use krenge and parentNode ki jgh tagName use krenge
+
+    //     // removeIt.parentNode.removeChild(removeIt);
+    //     //dono se kr skte hai apni marzi hai
+    // }, false)
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.tagName)
+        if(e.target.tagName === 'IMG') {
+            console.log(e.target.id)
+            let removeIt = e.target.parentNode
+            removeIt.remove() 
+        }
+    }, false)
+
+</script>
+</html>
