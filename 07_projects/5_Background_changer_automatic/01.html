@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello doston</title>
+</head>
+<body>
+    <h1>Hello guys.</h1>
+    <div>
+        Mai chahta hu ki start button click krne pr background colour change ho and stop krne pr default colour aajaye
+    </div>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+</body>
+<script>
+    // const colors = ['beige', 'lavender', 'pink', 'green', 'orange', 'purple', 'yellow']
+    // let colorIndex = 0;
+    // let intervalId;
+    // const start = function() {
+    //     document.body.style.backgroundColor = colors[colorIndex];
+    //     colorIndex = (colorIndex + 1) % colors.length
+    // }
+    // document.querySelector('#start').addEventListener('click', function () {
+    //     intervalId = setInterval(start, 1000);
+    // })
+    // document.querySelector('#stop').addEventListener('click', function () {
+    //     clearInterval(intervalId)
+    //     document.body.style.backgroundColor = "white"// agr is line ko hata diya toh background wahi rahega jo stop krne se pahle tha
+    //     colorIndex = 0;// agr is line ko hata diya toh jaha stop kiya tha uske agle color se change start hoga
+    // })
+
+    // ismein toh humne colors already store krke rakhe the but agar random color generate krne ho toh?
+    let intervalId;
+
+    const randomColor = function () {
+        const hex = '123456789ABCDEF'
+        let color = '#'
+        for (let i = 0; i < 6; i++) {
+            color += hex[Math.floor(Math.random() * 16)]
+        }
+        return color;
+    };
+    const start  = function () {
+        document.body.style.backgroundColor = randomColor()
+    }
+    document.querySelector('#start').addEventListener('click', function () {
+        if(!intervalId){
+            intervalId = setInterval(start, 1000);
+        }
+    })
+     
+    document.querySelector('#stop').addEventListener('click', function () {
+        clearInterval(intervalId)
+        intervalId = null;
+        document.body.style.backgroundColor = "white"
+    })
+
+</script>
+</html>
